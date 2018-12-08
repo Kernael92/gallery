@@ -1,4 +1,6 @@
-{% load bootstrap%}
+{% load bootstrap3%}
+{% load static%}
+
 
 <!DOCTYPE html>
 <html>
@@ -11,11 +13,19 @@
         {% endif%}
         {% block styles%}
             {% bootstrap_css%}
+            <link rel="stylesheet" href="{% static 'css/basegallery.css' %}">
         {% endblock%}
 
     </head>    
     <body>
-        {% block content %} <h1>Gallery for {{date|date:"l d-F-Y"}}</h1>{% endblock%}
+        {% include "navbar.html"%}
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        {% block content %}
+        <div class="container-fluid">
+                <h1 class="text-center">Gallery for {{date|date:"l d-F-Y"}}</h1>
+        </div> 
+        
+        {% endblock%}
         {% block script%}
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
             {% bootstrap_javascript%}
