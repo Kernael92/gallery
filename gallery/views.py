@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.http import HttpResponse ,Http404
 import datetime as dt 
 
@@ -8,28 +8,8 @@ def welcome(request):
     return render(request,'welcome.html')
 def gallery_today(request):
     date = dt.date.today()
-    # FUNCTION TO CONVERT DATE OBJECT TO FIND EXACT DAY
-    day = convert_dates(date)
-    html = f'''
-    
+    return render(request, 'all-gallery/today-gallery.html', {"date": date,})
 
-    <html>
-        <body>
-            <h1> {day} {date.day}-{date.month}-{date.year}</h1>
-    </html>
-            '''
-    return HttpResponse(html)
-
-def convert_dates(dates):
-
-    # Function that gets the weekday number for the date.
-    day_number = dt.date.weekday(dates)
-
-    days = ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday',"Sunday"]
-
-    # Returning the actual day of the week
-    day = days[day_number]
-    return day
 def past_days_gallery(request,past_date):
 
     try:
@@ -38,15 +18,12 @@ def past_days_gallery(request,past_date):
     except ValueError:
         # Raise 404 error when ValueError is thrown
         raise Http404()
+        assertFalse
+    if date == dt.date.today():
+        return redirect(gallery_today)
 
-    day = convert_dates(date)
-    html = f'''
-        <html>
-            <body>
-                <h1>Gallery for {day} {date.day}-{date.month}-{date.year}</h1>
-            </body>
-        </html>
-            '''
-    return HttpResponse(html)
+    
+            
+    return render(request,'all-gallery/past-gallery.html', {"date": date,})
 
 
