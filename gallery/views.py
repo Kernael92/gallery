@@ -5,7 +5,7 @@ import datetime as dt
 
 # Create your views here.
 def welcome(request):
-    return HttpResponse('Welcome to Kernel Gallery')
+    return render(request,'welcome.html')
 def gallery_today(request):
     date = dt.date.today()
     # FUNCTION TO CONVERT DATE OBJECT TO FIND EXACT DAY
