@@ -1,5 +1,6 @@
 from django.test import TestCase
 from .models import Image,Location,Category
+import datetime as dt 
 
 # Create your tests here.
 class LocationTestClasss(TestCase):
@@ -49,5 +50,10 @@ class ImageTestClass(TestCase):
     def test_get_gallery_today(self):
         today_gallery = Image.todays_gallery()
         self.assertTrue(len(today_gallery) > 0)
+    def test_get_gallery_by_date(self):
+        test_date = "2018-10-07"
+        date = dt.datetime.strptime(test_date, '%Y-%m-%d').date()
+        gallery_by_date = Image.days_gallery(date)
+        self.assertTrue(len(gallery_by_date) == 0)
 
 
