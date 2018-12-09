@@ -7,13 +7,17 @@ class Location(models.Model):
 
     def __str__(self):
         return self.name 
+    def save_location(self):
+        self.save()
 
 class Category(models.Model):
     name = models.CharField(max_length = 30)
-    description = models.CharField(max_length = 245)
+    
 
     def __str__(self):
         return self.name 
+    def save_category(self):
+        self.save()
 
 
 class Image(models.Model):
@@ -22,7 +26,7 @@ class Image(models.Model):
     image_description = models.TextField()
     location = models.ForeignKey(Location)
     category = models.ForeignKey(Category)
-    pub_date = models.DateTimeField(auto_now_add=True)
+    pub_date = models.DateTimeField(auto_now_add = True)
 
     def __str__(self):
         return self.image
