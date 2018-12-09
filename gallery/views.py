@@ -4,8 +4,6 @@ import datetime as dt
 
 
 # Create your views here.
-def welcome(request):
-    return render(request,'welcome.html')
 def gallery_today(request):
     date = dt.date.today()
     return render(request, 'all-gallery/today-gallery.html', {"date": date,})

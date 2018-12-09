@@ -30,5 +30,21 @@ class CategoryTestClass(TestCase):
         self.fashion.save_category()
         category = Category.objects.all()
         self.assertTrue(len(category) > 0)
+class ImageTestClass(TestCase):
+    def setUp(self):
+        # Creating a new location and saving it
+        self.nairobi = Location(name = 'Nairobi')
+        self.nairobi.save()
+
+        # Creating a new category and saving it
+        self.fashion = Category(name = 'Fashion')
+        self.fashionsave()
+
+        self.new_image = Image(image = 'image', name = 'image.jpg', description = 'a high fashion image taken at the nairobi fashion market event', location = 'Nairobi', category = 'Fashion')
+        self.new_image.save()
+    def tearDown(self):
+        Location.objects.all().delete()
+        Category.objects.all().delete()
+        Image.objects.all().delete()
 
 
