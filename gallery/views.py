@@ -1,12 +1,14 @@
 from django.shortcuts import render,redirect
 from django.http import HttpResponse ,Http404
 import datetime as dt 
+from .models import Image
 
 
 # Create your views here.
 def gallery_today(request):
     date = dt.date.today()
-    return render(request, 'all-gallery/today-gallery.html', {"date": date,})
+    gallery = Image.todays_gallery()
+    return render(request, 'all-gallery/today-gallery.html', {"date": date, "gallery":gallery})
 
 def past_days_gallery(request,past_date):
 
@@ -19,9 +21,10 @@ def past_days_gallery(request,past_date):
         assertFalse
     if date == dt.date.today():
         return redirect(gallery_today)
+    gallery = Image.days_gallery(date)
 
     
             
-    return render(request,'all-gallery/past-gallery.html', {"date": date,})
+    return render(request,'all-gallery/past-gallery.html', {"date": date, "gallery":gallery,})
 
 
