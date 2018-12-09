@@ -1,4 +1,5 @@
 from django.db import models
+import datetime as dt
 
 # Create your models here.
 
@@ -32,6 +33,14 @@ class Image(models.Model):
         return self.image
     class Meta:
         ordering = ['image']
+
+    def save_image(self):
+        self.save()
+    @classmethod
+    def todays_gallery(cls):
+        today = dt.date.today()
+        gallery = cls.objects.filter(pub_date__date = today)
+        return gallery
 
 
 

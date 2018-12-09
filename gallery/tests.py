@@ -38,7 +38,7 @@ class ImageTestClass(TestCase):
 
         # Creating a new category and saving it
         self.fashion = Category(name = 'Fashion')
-        self.fashionsave()
+        self.fashion.save()
 
         self.new_image = Image(image = 'image', name = 'image.jpg', description = 'a high fashion image taken at the nairobi fashion market event', location = 'Nairobi', category = 'Fashion')
         self.new_image.save()
@@ -46,5 +46,8 @@ class ImageTestClass(TestCase):
         Location.objects.all().delete()
         Category.objects.all().delete()
         Image.objects.all().delete()
+    def test_get_gallery_today(self):
+        today_gallery = Image.todays_gallery()
+        self.assertTrue(len(today_gallery) > 0)
 
 
