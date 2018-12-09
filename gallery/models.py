@@ -4,7 +4,8 @@ import datetime as dt
 # Create your models here.
 
 class Location(models.Model):
-    name =models.CharField(max_length = 100)
+    name = models.CharField(max_length = 30)
+    
 
     def __str__(self):
         return self.name 
@@ -29,7 +30,7 @@ class Image(models.Model):
     category = models.ForeignKey(Category)
     pub_date = models.DateTimeField(auto_now_add = True)
 
-    def __str__(self):
+    def get_absolute_ur(self):
         return self.image
     class Meta:
         ordering = ['image']
@@ -40,6 +41,10 @@ class Image(models.Model):
     def todays_gallery(cls):
         today = dt.date.today()
         gallery = cls.objects.filter(pub_date__date = today)
+        return gallery
+    @classmethod
+    def days_gallery(cls,date):
+        gallery = cls.objects.filter(pub_date__date = date)
         return gallery
 
 

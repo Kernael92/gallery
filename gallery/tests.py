@@ -41,7 +41,7 @@ class ImageTestClass(TestCase):
         self.fashion = Category(name = 'Fashion')
         self.fashion.save()
 
-        self.new_image = Image(image = 'image', name = 'image.jpg', description = 'a high fashion image taken at the nairobi fashion market event', location = 'Nairobi', category = 'Fashion')
+        self.new_image = Image(image = 'image', image_name = 'image.jpg', image_description = 'a high fashion image taken at the nairobi fashion market event', location = self.nairobi, category = self.fashion)
         self.new_image.save()
     def tearDown(self):
         Location.objects.all().delete()
