@@ -30,8 +30,6 @@ class Image(models.Model):
     category = models.ForeignKey(Category)
     pub_date = models.DateTimeField(auto_now_add = True)
 
-    def get_absolute_ur(self):
-        return self.image
     class Meta:
         ordering = ['image']
 
