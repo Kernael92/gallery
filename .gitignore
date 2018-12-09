@@ -5,3 +5,4 @@ virtual/
 .env
 .idea
 .vscode/settings.py
+virtual
