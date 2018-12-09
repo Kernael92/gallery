@@ -4,3 +4,4 @@ virtual/
 .settings.py
 .env
 .idea
+.vscode/

@@ -44,6 +44,10 @@ class Image(models.Model):
     def days_gallery(cls,date):
         gallery = cls.objects.filter(pub_date__date = date)
         return gallery
+    @classmethod
+    def search_by_category(cls,search_term):
+        gallery = cls.objects.filter(category__icontains=search_term)
+        return gallery
 
 
 
