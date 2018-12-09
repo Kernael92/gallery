@@ -2,4 +2,21 @@
 
 {% block content %}
 {{block.super}}
+<div class="container-fluid">
+    <!-- looping theough gallery -->
+    {% for gallery_item in gallery %}
+    <div class="row">
+        <!-- displaying Gallery images -->
+        <h2> {{gallery_item.image}} </h2>
+
+    </div>
+
+
+{% empty%}
+<div class="row">
+    <h2>There No gallery Items</h2>
+
+</div>
+{% endfor %}
+</div>
 {% endblock %}
