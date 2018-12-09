@@ -48,6 +48,10 @@ class Image(models.Model):
     def search_by_category(cls,search_term):
         gallery = cls.objects.filter(category__icontains=search_term)
         return gallery
+    @classmethod
+    def get_image(cls,image_id):
+        image = cls.objects.get(id = image_id)
+        return image
 
 
 

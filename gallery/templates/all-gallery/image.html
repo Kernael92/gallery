@@ -2,18 +2,30 @@
 {% block content %}
 <div class="container-fluid">
     <div class="row">
-        <img src="{{image.image_url}}" class="img-responsive" alt="">
-    </div>
-    <div class="row">
-        <h1>{{image.name}}</h1>
-    </div>
-    <div class="row">
-        <p>{{image.description}}</p>
+        <div class="col-md-6">
+                <img src="{{image.image.url}}" class="img-responsive" alt="">
 
-    </div>
-    <div class="row">
-        <p>Posted on {{image.pub_date|timesince}} at {{image.location.name}}</p>
+        </div>
+        
+   
+   
+        <div class="col-md-2">
+            <h1>{{image.image_name}}</h1>
 
+        </div>
+   
+   
+        <div class="col-md-6">
+            <p>{{image.image_description}}</p>
+
+        </div>
+        
+
+ 
+        <div class="col-md-6">
+            <p>Posted {{image.pub_date|timesince}} ago at {{image.location.name}}</p>
+
+        </div>
     </div>
 
 </div>

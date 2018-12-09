@@ -7,19 +7,23 @@
     <!-- looping theough gallery -->
     {% for gallery_item in gallery %}
     <div class="row">
-        <!-- displaying Gallery images -->
-        <a href=""></a>
-        <img src="{{gallery_item.image.url}}" class="img-responsive" alt="Image">
+        <div class="col-md-8">
+            <!-- displaying Gallery images -->
+            <a href=""></a>
+            <img src="{{gallery_item.image.url}}" class="img-responsive" alt="Image">
+
+        </div>
+        
     
 
     </div>
 
 
 {% empty%}
-<div class="row">
-    <h2>There No gallery Items</h2>
+        <div class="row">
+            <h2>There No gallery Items</h2>
 
-</div>
+        </div>
 {% endfor %}
 </div>
 {% endblock %}
