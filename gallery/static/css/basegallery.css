@@ -11,7 +11,15 @@ body {
 }
 h1{
     color: maroon;
+    font-size: 50px;
+    font-family: cursive;
+    text-shadow: 2px 2px grey;
 
+
+}
+p {
+    font-size: 35px;
+    font-family: fantasy;
 }
 .row {
     grid-gap: 50px;
