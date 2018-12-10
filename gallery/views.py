@@ -41,5 +41,15 @@ def image(request,image_id):
     except DoesNotExist:
         raise Http404()
     return render(request,"all-gallery/image.html",{"image":image})
+def filter_results(request):
+    if 'image' in request.GET and request.GET['image']:
+        search_term = request.GET.get('image')
+        filtered_images = Image.filter_by_location(search_term)
+        message = f"{search_term}"
+
+        return render(request, 'all-gallery/search.html',{"message":message,"images":filtered_images})
+    else:
+        message = "You haven't searched for any term"
+        return render(request, 'all-gallery/search.html',{"message":message})
 
 
