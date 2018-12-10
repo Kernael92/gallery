@@ -7,7 +7,8 @@ from .models import Image,Location,Category
 # Create your views here.
 def gallery_today(request):
     date = dt.date.today()
-    gallery = Image.todays_gallery()
+    # gallery = Image.todays_gallery()
+    gallery = Image.objects.all()
     return render(request, 'all-gallery/today-gallery.html', {"date": date, "gallery":gallery})
 
 def past_days_gallery(request,past_date):

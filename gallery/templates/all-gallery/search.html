@@ -16,7 +16,8 @@
   {% if images %}
     {% for image in images %}
       <div class="col-sm-6 col-md-3">
-            <img src="{{gallery_item.image.url}}" class="img-responsive" alt="Image">
+        <img src="{{image.image.url}}" class="img-responsive" alt="Image">
+      </div>
         
     {% endfor %}
   {% endif %}
