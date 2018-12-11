@@ -26,6 +26,8 @@ a {
     font-family: cursive;
     
 }
+/* .grid-item{width: 200px;}
+.grid-item--width2{width: 800px;} */
 form {
     position: absolute;
 }  
