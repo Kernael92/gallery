@@ -8,7 +8,7 @@ var captionText = document.getElementById("caption");
 img.onclick = function(){
   modal.style.display = "block";
   modalImg.src = this.src;
-  captionText.innerHTML = this.p;
+  captionText.innerHTML = this.div.caption;
 }
 
 // Get the <span> element that closes the modal
@@ -18,3 +18,13 @@ var span = document.getElementsByClassName("close")[0];
 span.onclick = function() { 
   modal.style.display = "none";
 }
+
+$('#clip_board').attr('data-clipboard-image', $(".copy_image").img())
+window.onload = function(){
+    var client = new ZeroClipboard(document.getElementsByClassName("copy-image") );
+    client.on( "ready", function( readyEvent ) {
+      client.on( "aftercopy", function( event ) {
+        alert("Copied.." );
+      });
+    });
+  }

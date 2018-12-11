@@ -8,7 +8,7 @@
         <nav class="navbar navbar-topnav" style="background-color: maroon;">
             
             <div class="navbar-header">
-                <a class='active navbar-brand'  href="{% url 'galleryToday'%}">Home</a>
+                <a class='active navbar-brand'  href="{% url 'galleryToday'%}" style="font-size: 40px;">Home</a>
 
             </div>
             <div class="col-sm-4 col-md-4 navbar-right">
@@ -22,7 +22,9 @@
                         </div>
                             
                     </div>
+                </div>
                 </form>
+                <div class="col-sm-4 col-md-4 navbar-center">
                 <form class="navbar-form"  role="filter" action="{% url 'filter_results'%}">
                     <div class="input-group">
                         <input type="text" class="form-control" placeholder="filter by location" name='image'>
