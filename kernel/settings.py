@@ -37,6 +37,7 @@ ALLOWED_HOSTS=config('ALLOWED_HOSTS', cast=Csv())
 # Application definition
 
 INSTALLED_APPS=[
+    'whitenoise.runserver_nostatic',
     'gallery.apps.GalleryConfig',
     'bootstrap3',
     'django.contrib.admin',

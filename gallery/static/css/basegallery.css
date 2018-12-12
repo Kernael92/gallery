@@ -2,22 +2,14 @@ body {
     padding:20px;
     margin: 20px;
     border: 20px;
-    background-image: url('../images/img.jpg/');
+    background-image: url('../images/img.jpg');
 
     
 
    
 
 }
-.bg-image {
-    height: 50%;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-.img1 {background-image: url("img.jpg/");}
-.img2 {background-image: url("images(1).jpeg/");}
-.img3 {background-image: url("images(2).jpeg/");}
+
 h1{
     color: maroon;
     font-size: 50px;
@@ -29,6 +21,7 @@ h1{
 p {
     font-size: 35px;
     font-family: fantasy;
+    font-weight: bold;
 }
 a {
     
@@ -57,14 +50,24 @@ form {
 
 #myImg:hover {opacity: 0.7;}
 
+.modal-dialog {
+    width: 100vw;
+}
+
 
 /* Add Animation */
-.modal-content, {    
+.modal-content {    
     -webkit-animation-name: zoom;
     -webkit-animation-duration: 0.6s;
     animation-name: zoom;
     animation-duration: 0.6s;
     overflow: auto;
+    background-image: url(../images/img1.jpg);
+    
+    padding: 10px;
+    margin: 10px;
+    border: 10px;
+
 }
 
 @-webkit-keyframes zoom {
@@ -83,19 +86,19 @@ form {
     top: 15px;
     right: 50px;
     color: maroon;
-    font-size: 40px;
+    font-size: 50px;
     font-weight: bold;
     transition: 0.3s;
 }
 
 .close:hover,
 .close:focus {
-    color: #bbb;
+    color: blue;
     text-decoration: none;
     cursor: pointer;
 }
 
-/* 100% Image Width on Smaller Screens */
+
 @media (min-width: 576px) {
     .modal-dialog { max-width: none; }
 }
