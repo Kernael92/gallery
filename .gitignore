@@ -1,8 +1,6 @@
-__pycache__/
-virtual/
-*.pyc
-.settings.py
 .env
+virtual/
+.Vscode/
+*.pyc
 .idea
-.vscode/settings.py
-virtual
+__pycache__/
