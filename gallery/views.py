@@ -8,10 +8,6 @@ from .models import Image,Location,Category
 def gallery_today(request):
     date = dt.date.today()
     images = Image.objects.all()
-    
-
-    
-
     return render(request,"all-gallery/today-gallery.html",{"date":date,"images":images,})
 
 def past_days_gallery(request,past_date):
